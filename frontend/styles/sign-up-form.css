@@ -1,0 +1,95 @@
+  /* This is the universal box sizing element */
+  html {
+      box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+      box-sizing: inherit;
+  }
+
+  /* Generic reset for many elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins";
+      background: #C5F4C1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 200px;
+  }
+
+  li {
+      list-style-type: none;
+  }
+
+  .section-one {
+      margin-top: 150px;
+      margin-left: 100px;
+  }
+
+  .form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 400px;
+      margin-top: 65px;
+  }
+
+  .form div {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .form div input {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      gap: 10px;
+      padding: 10px 0px 10px 10px;
+      border-radius: 10px;
+      border: 1px solid #000;
+  }
+
+  .form__submit-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      height: 35px;
+      padding: 10px 0px 10px 10px;
+      gap: 10px;
+      border-radius: 10px;
+      border: 1px solid #3A5B22;
+      background: #3A5B22;
+  }
+
+  .form__sign-in-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 20px;
+      border-radius: 10px;
+      border: #D9D9D9;
+  }
+
+  .form__span {
+      color: #0F3DDE;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+  }
