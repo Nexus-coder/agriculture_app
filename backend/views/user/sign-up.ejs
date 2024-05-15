@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/sign-up-form.css">
+    <link rel="stylesheet" href="./stylesheets/sign-up-form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,21 +21,21 @@
 <body>
     <section class="section-one">
         <h2>Get Started Now</h2>
-        <form class="form" action="">
+        <form class="form" action="/register" method="post">
             <div>
                 <label for="">Name</label>
-                <input type="text">
+                <input type="text" name="username">
             </div>
             <div>
                 <label for="">Email address</label>
-                <input type="text">
+                <input type="text" name="email">
             </div>
             <div>
                 <label for="">Password</label>
-                <input type="text">
+                <input type="text" name="password">
             </div>
             <button class="form__submit-button">Submit</button>
-            <button class="form__sign-in-google"><img src="./assets/icons/icons8-google 1.svg" alt=""><span>Sign in with
+            <button class="form__sign-in-google"><img src="/assets/icons/icons8-google 1.svg" alt=""><span>Sign in with
                     Google</span></button>
             <p class="form__have-account">Have an account? <span class="form__span">sign in</span></p>
         </form>
@@ -47,7 +47,7 @@
         <div>
             <h1>With Us.</h1>
         </div>
-        <img src="./assets/pictures/vegetables.png" alt="">
+        <img src="/assets/pictures/vegetables.png" alt="">
     </section>
     <script src="./script.js"></script>
 </body>

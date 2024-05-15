@@ -1,0 +1,126 @@
+.main_billing {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 24px;
+}
+
+.billing {
+    width: 870px;
+    height: 100%;
+    flex-direction: column;
+}
+
+.billing>h2 {
+    margin-bottom: 20px;
+}
+
+.billing__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.billing__form div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.billing__form div label {
+    color: #1A1A1A;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.billing__form div input {
+    height: 49px;
+    padding: 14px 142px 14px 16px;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--Gray-Scale-Gray-100, #E6E6E6);
+    background: var(--Gray-Scale-White, #FFF);
+}
+
+.billing__name {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.billing__name div {
+    width: calc(870px /3 - 5px);
+}
+
+.billing__address {
+    width: 100%;
+}
+
+.billing__location {
+    display: flex;
+    flex-direction: row;
+}
+
+::placeholder {
+    color: #999;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    /* 20.8px */
+}
+
+.order__summary {
+    width: 380px;
+    height: 470px;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-Scale-Gray-100, #E6E6E6);
+    background: var(--Gray-Scale-White, #FFF);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.order__summary-list-item {
+    display: flex;
+    align-items: center;
+}
+
+.order__summary-list-item span {
+    margin-left: auto;
+}
+
+.order__summary-list-item img {
+    width: 60px;
+    height: 60px;
+}
+
+.prices div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order__summary__1 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order__summary-button {
+    border: none;
+    display: flex;
+    padding: 16px 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background: #00B207;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}

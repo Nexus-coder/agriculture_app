@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./styles/place-order.css">
+    <link rel="stylesheet" href="./styles/farmer-store.css">
     <link rel="stylesheet" href="./styles/product-listing.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,54 +32,30 @@
             <input class="navbar__products-input" type="text">
         </div>
     </nav>
-    <section class="main_billing">
-        <section class="billing">
-            <h2>Billing Information</h2>
-            <form class="billing__form" action="">
-                <section class="billing__name">
+    <section class="main_store">
+        <section class="store">
+            <h2>Farmer Store Information</h2>
+            <form class="store__form" action="">
+                <section class="store__name">
                     <div>
-                        <label for="">First Name</label>
-                        <input type="text" placeholder="Your First Name">
-                    </div>
-                    <div>
-                        <label for="">Last Name</label>
-                        <input type="text" placeholder="Your Last Name">
-                    </div>
-                    <div>
-                        <label for="">Company Name(optional)</label>
-                        <input type="text" placeholder="Company Name">
+                        <label for="">Type of mushroom grown</label>
+                        <input type="text" placeholder="Type" name="type">
                     </div>
                 </section>
-                <div class="billing__address">
-                    <label for="">Street Address</label>
-                    <input type="text" placeholder="Address">
+                <div class="store__address">
+                    <label for="">Images of the Type grown</label>
+                    <input type="file" placeholder="Images">
                 </div>
-                <section class="billing__more-info">
-                    <section class="billing__location">
+                <section class="store__more-info">
+                    <section class="store__location">
 
                         <div>
-                            <label for="">Country</label>
-                            <input type="text" placeholder="Country">
+                            <label for="">Size</label>
+                            <input type="text" placeholder="Size">
                         </div>
                         <div>
-                            <label for="">States</label>
-                            <input type="text" placeholder="States">
-                        </div>
-
-                        <div>
-                            <label for="">Zip Code</label>
-                            <input type="text" placeholder="Zip Code">
-                        </div>
-
-                    </section>
-                    <section class="billing__contact">
-                        <div>
-                            <label for="">Email</label>
-                            <input type="text" placeholder="Email">
-                        </div>
-                        <div>
-                            <label for="">Phone</label>
-                            <input type="text" placeholder="Phone">
+                            <label for="">Intended Use Of the Mushroom</label>
+                            <input type="text" placeholder="Use">
                         </div>
                     </section>
                 </section>
@@ -95,27 +71,13 @@
                         <span>sh70</span>
                     </li>
                 </ul>
-                <div class="prices">
-                    <div class="order__summary-subtotal">
-                        <span>Subtotal:</span>
-                        <span>Sh.84</span>
-                    </div>
-                    <div class="order__summary-price">
-                        <p>Price</p>
-                        <span></span>
-                    </div>
-                    <div class="order__summary-total">
-                        <p>Total:</p>
-                        <span></span>
-                    </div>
-                </div>
             </div>
             <div>
                 <h3>Payment Method</h3>
                 <input type="checkbox" name="cash_on_delivery" id="">
                 <p>Cash On Delivery</p>
             </div>
-           
+
             <button class="order__summary-button">Place Order</button>
         </section>
     </section>

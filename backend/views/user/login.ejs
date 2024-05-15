@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/sign-up-form.css">
+    <link rel="stylesheet" href="/stylesheets/sign-up-form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,19 +20,16 @@
 
 <body>
     <section class="section-one">
-        <h2>Get Started Now</h2>
-        <form class="form" action="">
-            <div>
-                <label for="">Name</label>
-                <input type="text">
-            </div>
+        <h2>Welcome Back</h2>
+        <p>Enter your Credentials to access your account</p>
+        <form class="form" action="/login" method="post">
             <div>
                 <label for="">Email address</label>
-                <input type="text">
+                <input type="text" name="username">
             </div>
             <div>
                 <label for="">Password</label>
-                <input type="text">
+                <input type="text" name="password">
             </div>
             <button class="form__submit-button">Submit</button>
             <button class="form__sign-in-google"><img src="./assets/icons/icons8-google 1.svg" alt=""><span>Sign in with
