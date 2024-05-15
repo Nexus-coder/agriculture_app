@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 //this is the port it is currently on
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Connection URI (replace with your details)
 const uri = "mongodb://localhost:27017/test-agriculture";
