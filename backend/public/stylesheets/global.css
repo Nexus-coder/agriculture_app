@@ -1,31 +1,68 @@
   /* This is the universal box sizing element */
   html {
-    box-sizing: border-box;
+      box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+      box-sizing: inherit;
+  }
+
+  /* Generic reset for many elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins";
+  }
+
+
+  li {
+      list-style-type: none;
+  }
+
+  .pop-up {
+    position: absolute;
+    left: 35%;
+    top: 20px;
+    z-index: 99;
+    width: 400px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    transform: translateY(-100px);
+    animation-name: slide-in;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+.welcome {
+    background-color: greenyellow;
 }
 
-/* Generic reset for many elements */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins";
+.error {
+    background-color: red;
 }
 
-li {
-    list-style-type: none;
+@keyframes slide-in {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+
 }

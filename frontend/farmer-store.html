@@ -35,7 +35,7 @@
     <section class="main_store">
         <section class="store">
             <h2>Farmer Store Information</h2>
-            <form class="store__form" action="">
+            <form class="store__form" enctype="multipart/form-data">
                 <section class="store__name">
                     <div>
                         <label for="">Type of mushroom grown</label>
@@ -44,26 +44,28 @@
                 </section>
                 <div class="store__address">
                     <label for="">Images of the Type grown</label>
-                    <input type="file" placeholder="Images">
+                    <input class="image-file" type="file" placeholder="Images" name="image-upload" accept="image/*">
                 </div>
                 <section class="store__more-info">
                     <section class="store__location">
 
                         <div>
                             <label for="">Size</label>
-                            <input type="text" placeholder="Size">
+                            <input type="text" placeholder="Size" name="size">
                         </div>
                         <div>
                             <label for="">Intended Use Of the Mushroom</label>
-                            <input type="text" placeholder="Use">
+                            <input type="text" placeholder="Use" name="use">
                         </div>
                     </section>
                 </section>
+                <button id="save" class="store__location__button">Save</button>
+                <div  id="remove" class="store__location__button" >Close</div>
             </form>
         </section>
         <section class="order__summary">
             <div class="order__summary__1">
-                <h2>Order Summary</h2>
+                <h2>Mushroom Summary</h2>
                 <ul class="order__summary-list">
                     <li class="order__summary-list-item">
                         <img src="./assets/pictures/capsicum.jpeg" alt="">
@@ -79,9 +81,10 @@
             </div>
 
             <button class="order__summary-button">Place Order</button>
+            <button id="add" class="order__summary-button">Add Item</button>
         </section>
     </section>
-
+<script src="./script.js"></script>
 </body>
 
 </html>

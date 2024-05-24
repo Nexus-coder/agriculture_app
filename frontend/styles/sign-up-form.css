@@ -29,10 +29,51 @@
       align-items: center;
       justify-content: center;
       gap: 200px;
+      position: relative;
   }
+
 
   li {
       list-style-type: none;
+  }
+
+  .pop-up {
+      position: absolute;
+      top: 20px;
+      z-index: 99;
+      width: 400px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 5px;
+      transform: translateY(-100px);
+      animation-name: slide-in;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+  }
+
+  .welcome {
+      background-color: greenyellow;
+  }
+
+  .error {
+      background-color: red;
+  }
+
+  @keyframes slide-in {
+      from {
+          transform: translateY(-100px);
+      }
+
+      to {
+          transform: translateY(0);
+      }
+
+  }
+
+  .pop-up p {
+      background-color: transparent;
   }
 
   .section-one {
