@@ -10,7 +10,6 @@
     display: inherit;
     gap: 50px;
     font-size: 16px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
@@ -44,16 +43,15 @@
 
 .navbar__button {
     display: flex;
-    border: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7C35F;
     border-radius: 5px;
     color: #fff;
     width: 180px;
     height: 60px;
     padding: 12px 16px;
-    justify-content: center;
-    align-items: center;
     gap: 12px;
-    background-color: #F7C35F;
 }
 
 .hero__section {
@@ -90,7 +88,6 @@
 .hero__section-welcome {
     color: #fff;
     font-size: 20px;
-    font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 1.28px;
@@ -110,17 +107,14 @@
     color: #FFF;
     font-family: Poppins;
     font-size: 16px;
-    font-style: normal;
     font-weight: 500;
     line-height: 28px;
-    /* 175% */
 }
 
 .hero__section-content h1 {
-    color: var(--Color-Palet-Pure-White, #FFF);
+    color:  #FFF;
     font-family: Dosis;
     font-size: 86px;
-    font-style: normal;
     font-weight: 600;
     line-height: 118.4%;
     text-transform: uppercase;
@@ -133,14 +127,13 @@
 
 .hero__section-content button {
     display: flex;
-    border: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7C35F;
     border-radius: 5px;
     color: #fff;
     width: 180px;
     height: 60px;
     padding: 12px 16px;
-    justify-content: center;
-    align-items: center;
     gap: 12px;
-    background-color: #F7C35F;
 }

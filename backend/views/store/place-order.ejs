@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="/stylesheets/place-order.css">
+    <link rel="stylesheet" href="/stylesheets/product-listing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar__products">
+        <ul class="navbar__products-list">
+            <li><a href="/">Home</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/products">Shop</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
+        </ul>
+        <div class="navbar__products-div">
+            <img class="navbar__assets" src="/assets/svg/search.svg" alt="">
+            <input class="navbar__products-input" type="text">
+        </div>
+    </nav>
+    <section class="main_billing">
+        <section class="billing">
+            <h2>Billing Information</h2>
+            <form class="billing__form" action="/orders" method="post">
+                <section class="billing__name">
+                    <div>
+                        <label for="">First Name</label>
+                        <input type="text" placeholder="Your First Name" name="firstName">
+                    </div>
+                    <div>
+                        <label for="">Last Name</label>
+                        <input type="text" placeholder="Your Last Name" name="lastName">
+                    </div>
+                </section>
+                <div class="billing__address">
+                    <label for="">Street Address</label>
+                    <input type="text" placeholder="Address" name="address">
+                </div>
+                <section class="billing__more-info">
+                    <section class="billing__location">
+
+                        <div>
+                            <label for="">Country</label>
+                            <input type="text" placeholder="Country" name="country">
+                        </div>
+                    </section>
+                    <section class="billing__contact">
+                        <div>
+                            <label for="">Email</label>
+                            <input type="text" placeholder="Email" name="email">
+                        </div>
+                        <div>
+                            <label for="">Phone</label>
+                            <input type="text" placeholder="Phone" name="phone">
+                        </div>
+                    </section>
+                </section>
+            <button class="order__summary-button">Place Order</button>
+
+            </form>
+        </section>
+        <section class="order__summary">
+            <div class="order__summary__1">
+                <h2>Order Summary</h2>
+                <ul class="order__summary-list">
+                    <% for (const item of cart) { %>
+                        <li class="order__summary-list-item" data-id="<%= item.productId %>">
+                            <!-- <img src="./assets/pictures/capsicum.jpeg" alt=""> -->
+                            <p><%= item.name %></p>
+                            <span><%= item.price %></span>
+                        </li>
+                        <% } %>
+                </ul>
+                <div class="prices">
+                    <div class="order__summary-subtotal">
+                        <span>Subtotal:</span>
+                        <span>Sh.84</span>
+                    </div>
+                    <div class="order__summary-price">
+                        <p>Price</p>
+                        <span></span>
+                    </div>
+                    <div class="order__summary-total">
+                        <p>Total:</p>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Payment Method</h3>
+                <input type="checkbox" name="cash_on_delivery" id="cash_on_delivery">
+                <p>Cash On Delivery</p>
+            </div>
+           
+        </section>
+    </section>
+
+</body>
+
+</html>

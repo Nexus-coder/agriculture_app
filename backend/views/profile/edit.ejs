@@ -23,32 +23,33 @@
 <body>
     <nav class="navbar__products">
         <ul class="navbar__products-list">
-            <li><a href="./index.html">Home</a> <img src="./assets/svg/dropdown.svg" alt=""></li>
-            <li><a href="./product-listing-page.html">Shop</a> <img src="./assets/svg/dropdown.svg" alt=""></li>
-            <li><a href="">Pages</a><img src="./assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/">Home</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/products">Shop</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="">Pages</a><img src="/assets/svg/dropdown.svg" alt=""></li>
         </ul>
         <div class="navbar__products-div">
-            <img class="navbar__assets" src="./assets/svg/search.svg" alt="">
+            <img class="navbar__assets" src="/assets/svg/search.svg" alt="">
             <input class="navbar__products-input" type="text">
         </div>
     </nav>
     <section class="main_store">
         <section class="store">
             <h2>Farmer Store Information</h2>
-            <form class="store__form" enctype="multipart/form-data" action="/store/create" method="post">
+            <form class="store__form" enctype="multipart/form-data" action="/store/create?_method=PUT" method="post">
                 <h2>Store Name</h2>
-                <input id="store__name" type="text" name="storeName">
+                <input id="store__name" type="text" name="storeName" value="<%= farmer.storeName %>">
                 <ul class="mushroom__list">
                     <li class="mushroom__item">
                         <section class="store__name">
                             <div>
                                 <label for="">Type 1 of mushroom grown</label>
-                                <input class="mushroom-type" type="text" placeholder="Type" name="type" required>
+                                <input class="mushroom-type" type="text" placeholder="Type" name="type"
+                                    value="<%=farmer.mushrooms[0].type%>" required>
                             </div>
                             <div>
                                 <label for="location">Location</label>
                                 <input id="locatin" class="mushroom-size" type="text" placeholder="Location"
-                                    name="location" required>
+                                    name="location" value="<%=farmer.mushrooms[0].size%>" required>
                             </div>
                         </section>
                         <div class="store__address">
@@ -57,14 +58,16 @@
                                 accept="image/*" multiple required>
                         </div>
                         <section class="store__more-info">
-                                <div>
-                                    <label for="size-1">Size of land in acres</label>
-                                    <input id="size-1" class="mushroom-size" type="text" placeholder="Size" name="size" required>
-                                </div>
-                                <div>
-                                    <label for="use-1">Intended Use Of the Mushroom</label>
-                                    <input id="use-1" class="mushroom-use" type="text" placeholder="Use" name="use" required>
-                                </div>
+                            <div>
+                                <label for="size-1">Size of land in acres</label>
+                                <input id="size-1" class="mushroom-size" type="text" placeholder="Size" name="size"
+                                    value="<%=farmer.mushrooms[0].size%>" required>
+                            </div>
+                            <div>
+                                <label for="use-1">Intended Use Of the Mushroom</label>
+                                <input id="use-1" class="mushroom-use" type="text" placeholder="Use" name="use"
+                                    value="<%=farmer.mushrooms[0].intendedUse%>" required>
+                            </div>
                         </section>
                     </li>
                 </ul>
@@ -93,7 +96,7 @@
                         </div>
                     </li>
                 </ul>
-                <button type="submit" class="order__summary-button">Upload Product</button>
+                <button type="submit" class="order__summary-button">Edit Product</button>
             </form>
         </section>
         <!-- <section class="order__summary">

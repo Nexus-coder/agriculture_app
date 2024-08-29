@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./styles/farmer-store.css">
     <link rel="stylesheet" href="./styles/product-listing.css">
+    <link rel="stylesheet" href="./styles/farmer-store.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -35,6 +35,11 @@
     <section class="main_store">
         <section class="store">
             <h2>Farmer Store Information</h2>
+            <form action="">
+                <h2>Store Name</h2>
+                <input type="text">
+            </form>
+
             <form class="store__form" enctype="multipart/form-data">
                 <section class="store__name">
                     <div>
@@ -62,6 +67,35 @@
                 <button id="save" class="store__location__button">Save</button>
                 <div  id="remove" class="store__location__button" >Close</div>
             </form>
+
+            <!-- <form action="">
+                <h2>Add the products for the mushrooms</h2>
+                <div class="store__address">
+                    <label for="">Images of the Type grown</label>
+                    <input class="image-file" type="file" placeholder="Images" name="image-upload" accept="image/*">
+                </div>
+            </form> -->
+            <h1>Upload New Product</h1>
+            <form id="product-form">
+              <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product_name" required>
+              </div>
+              <div class="form-group">
+                <label for="product-description">Description:</label>
+                <textarea id="product-description" name="product_description" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="product-price">Price:</label>
+                <input type="number" id="product-price" name="product_price" min="0" required>
+              </div>
+              <div class="form-group">
+                <label for="product-image">Product Image:</label>
+                <input type="file" id="product-image" name="product_image" accept="image/*" required>
+              </div>
+              <button type="submit">Upload Product</button>
+            </form>
+            <script src="script.js"></script>
         </section>
         <section class="order__summary">
             <div class="order__summary__1">

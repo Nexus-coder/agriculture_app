@@ -2,23 +2,28 @@
     <nav class="navbar">
         <img class="logo" src="" alt="">
         <ul class="navbar__list">
-            <li class="list__items"><a class="list__links" href="./index.html">Home</a></li>
-            <li class="list__items"><a class="list__links" href="./">About</a></li>
-            <li class="list__items"><a class="list__links" href="./">Contacts</a></li>
+            <li class="list__items"><a class="list__links" href="/">Home</a></li>
+            <li class="list__items"><a class="list__links" href="/about">About</a></li>
+            <li class="list__items"><a class="list__links" href="/contacts">Contacts</a></li>
             <li class="list__items"><a class="list__links" href="/products">Products</a></li>
-            <li class="list__items"><a class="list__links" href="/login">Login</a></li>
-            <li class="list__items"><a class="list__links" href="/register">Sign Up</a></li>
-            <li class="list__items"><a class="list__links" href="./wishlist.html">Wish List</a></li>
+            <li class="list__items"><a class="list__links" href="/wishlist">Wish List</a></li>
+            <% if (!currentUser) { %>
+                <li class="list__items"><a class="list__links" href="/login">Login</a></li>
+                <li class="list__items"><a class="list__links" href="/register">Sign Up</a></li>
+            <% } else { %>
+                <li class="list__items"> <a class="list__links" href="/logout">Logout</a></li>
+            <% } %>
+            <li class="list__items"><a href="/profile">Profile</a></li>
+          
         </ul>
         <section class="navbar__information">
-            <a href="./place-order-page.html"><img class="navbar__assets" src="/assets/icons/shopping-cart.png"
-                    alt=""></a>
-            <a href=""><img class="navbar__assets" src="/assets/icons/search-interface-symbol.png" alt=""></a>
+            <a href="/place-order"><img class="navbar__assets" src="/assets/icons/shopping-cart.png" alt=""></a>
+            <a href="/contacts"><img class="navbar__assets" src="/assets/icons/search-interface-symbol.png" alt=""></a>
             <button class="navbar__button">call now</button>
         </section>
     </nav>
     <section class="hero__section">
-        <img class="hero__section-image" src="/assets/pictures/pexels-quang-nguyen-vinh-6136413.jpg" alt="">
+        <img class="hero__section-image" src="/assets/pictures/mush.jpg" alt="">
         <section class="hero__section-content">
             <p class="hero__section-welcome">WELCOME TO ShambaLink a B2B customer system </p>
             <div class="par-heading">
@@ -32,8 +37,8 @@
 
             </div>
             <div class="hero__section-buttons">
-                <button>SELL HERE</button>
-                <button>BUY HERE</button>
+                <a href="/create-store"><button>SELL HERE</button></a>
+                <a href="/products"><button>BUY HERE</button></a>
             </div>
         </section>
     </section>

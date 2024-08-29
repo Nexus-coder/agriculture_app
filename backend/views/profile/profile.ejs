@@ -1,10 +1,11 @@
 <% layout('layout/boilerplate.ejs') %>
     <nav class="navbar__products">
         <ul class="navbar__products-list">
-            <li><a href="/">Home</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
-            <li><a href="/products">Shop</a> <img src="/assets/svg/dropdown.svg" alt=""></li>
-            <li><a href="/contacts">Contact Us</a><img src="/assets/svg/dropdown.svg" alt=""></li>
-            <li><a href="/create-store">Create Store</a></li>
+            <li><a href="/">Home</a> <img src="./assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/products">Shop</a> <img src="./assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/contacts">Contact Us</a><img src="./assets/svg/dropdown.svg" alt=""></li>
+            <li><a href="/profile/edit">Edit Store</a></li>
+            <li><a href="/profile/delete">Delete Store</a></li>
             <li class="list__items"><a href="/profile">Profile</a></li>
 
         </ul>
@@ -20,11 +21,11 @@
     <section class="container">
         <section class="categories">
             <h2>
-                Popular categories
+                Farmer Profile
             </h2>
             <section class="categories__list-section">
                 <ul class="categories__list">
-                    <% for (const mushroom of mushrooms) { %>
+                    <% for (const mushroom of farmer.mushrooms) { %>
                         <li class="categories__list-item">
                             <figure class="categories__list-card">
                                 <img class="categories__list-image" src="/mushrooms-images/<%= mushroom.images[0] %>"
@@ -43,7 +44,7 @@
                 Popular Products
             </h2>
             <ul class="products__list">
-                <% for (const product of products) { %>
+                <% for (const product of farmer.products) { %>
                     <li class="products__list-item">
                         <figure class="products__list-card">
                             <div class="products__list-card-div">

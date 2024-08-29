@@ -31,38 +31,48 @@
       list-style-type: none;
   }
 
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+  button {
+      border: none;
+      background-color: transparent;
+  }
+
   .pop-up {
-    position: absolute;
-    left: 35%;
-    top: 20px;
-    z-index: 99;
-    width: 400px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 5px;
-    transform: translateY(-100px);
-    animation-name: slide-in;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-}
+      position: absolute;
+      left: 35%;
+      top: 20px;
+      z-index: 99;
+      width: 400px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 5px;
+      transform: translateY(-100px);
+      animation-name: slide-in;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+  }
 
-.welcome {
-    background-color: greenyellow;
-}
+  .welcome {
+      background-color: greenyellow;
+  }
 
-.error {
-    background-color: red;
-}
+  .error {
+      background-color: red;
+  }
 
-@keyframes slide-in {
-    from {
-        transform: translateY(-100px);
-    }
+  @keyframes slide-in {
+      from {
+          transform: translateY(-100px);
+      }
 
-    to {
-        transform: translateY(0);
-    }
+      to {
+          transform: translateY(0);
+      }
 
-}
+  }

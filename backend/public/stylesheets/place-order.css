@@ -1,71 +1,65 @@
-input {
-    height: 50px;
-    padding: 14px 142px 14px 16px;
-    border-radius: 6px;
-    border: 1px solid #E6E6E6;
-    background: #FFF;
-}
-
-.main_store {
+.main_billing {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     gap: 24px;
 }
 
-.store {
+.billing {
     width: 870px;
     height: 100%;
     flex-direction: column;
 }
 
-.store>h2 {
+.billing>h2 {
     margin-bottom: 20px;
 }
 
-.store__form {
+.billing__form {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.store__form div {
+.billing__form div {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.store__form div label {
+.billing__form div label {
     color: #1A1A1A;
     font-family: Poppins;
     font-size: 14px;
+    font-style: normal;
     font-weight: 400;
     line-height: 150%;
 }
 
-/* .store__form div input {
-    height: 50px;
+.billing__form div input {
+    height: 49px;
     padding: 14px 142px 14px 16px;
+    align-items: center;
     border-radius: 6px;
-    border: 1px solid #E6E6E6;
-    background: #FFF;
-} */
+    border: 1px solid var(--Gray-Scale-Gray-100, #E6E6E6);
+    background: var(--Gray-Scale-White, #FFF);
+}
 
-.store__name {
+.billing__name {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
 
-.store__name div {
+.billing__name div {
     width: calc(870px /3 - 5px);
 }
 
-.store__address {
+.billing__address {
     width: 100%;
 }
 
-.store__location {
+.billing__location {
     display: flex;
     flex-direction: row;
 }
@@ -73,8 +67,10 @@ input {
 ::placeholder {
     color: #999;
     font-size: 16px;
+    font-style: normal;
     font-weight: 400;
     line-height: 130%;
+    /* 20.8px */
 }
 
 .order__summary {
@@ -115,14 +111,16 @@ input {
 }
 
 .order__summary-button {
+    border: none;
     display: flex;
+    padding: 16px 40px;
     justify-content: center;
     align-items: center;
-    padding: 16px 40px;
     border-radius: 40px;
     background: #00B207;
     color: #FFF;
     font-size: 16px;
+    font-style: normal;
     font-weight: 600;
     line-height: 120%;
 }
