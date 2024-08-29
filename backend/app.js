@@ -44,7 +44,7 @@ const PORT = process.env.PORT || 3000;
 
 // Connection URI (replace with your details)
 const uri = "mongodb://127.0.0.1:27017/test-agriculture";
-const productionUrl = "mongodb+srv://andrew:gGfEcFs8TOafgOHW@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const productionUrl = "mongodb+srv://kimani:Pu3hEMLprgPJjlLj@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // Connect to MongoDB
 async function connectDB() {
     try {
