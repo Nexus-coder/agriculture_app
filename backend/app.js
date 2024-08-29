@@ -43,12 +43,12 @@ app.use(express.static("public"));
 const PORT = process.env.PORT || 3000;
 
 // Connection URI (replace with your details)
-const uri = "mongodb://localhost:27017/test-agriculture";
-const productionUrl = "mongodb+srv://kimani:ISETbQb48ro0QQOJ@cluster0.hbs3wtk.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0"
+const uri = "mongodb://127.0.0.1:27017/test-agriculture";
+const productionUrl = "mongodb+srv://andrew:gGfEcFs8TOafgOHW@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // Connect to MongoDB
 async function connectDB() {
     try {
-        await mongoose.connect(uri);
+        await mongoose.connect(productionUrl);
         console.log('MongoDB connected successfully!');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
