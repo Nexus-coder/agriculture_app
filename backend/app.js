@@ -75,7 +75,7 @@ app.use(session({
     saveUninitialized: true,
     resave: true,
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/test-agriculture'
+        mongoUrl: 'mongodb+srv://kimani:Pu3hEMLprgPJjlLj@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
     }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
