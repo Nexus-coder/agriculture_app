@@ -44,11 +44,11 @@ const PORT = process.env.PORT || 3000;
 
 // Connection URI (replace with your details)
 const uri = "mongodb://127.0.0.1:27017/test-agriculture";
-const productionUrl = "mongodb+srv://kimani:Pu3hEMLprgPJjlLj@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+// const productionUrl = "mongodb+srv://kimani:Pu3hEMLprgPJjlLj@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // Connect to MongoDB
 async function connectDB() {
     try {
-        await mongoose.connect(productionUrl);
+        await mongoose.connect(uri);
         console.log('MongoDB connected successfully!');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
@@ -75,7 +75,7 @@ app.use(session({
     saveUninitialized: true,
     resave: true,
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://kimani:Pu3hEMLprgPJjlLj@cluster0.hbs3wtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+        mongoUrl: uri
     }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
@@ -295,9 +295,12 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log({ username, password })
 
     try {
         const user = await User.findOne({ username }); // Replace with your user model method
+
+        console.log('this is the found user', user)
 
         if (!user) {
             req.flash('error', 'Invalid username or password');
@@ -401,78 +404,78 @@ app.post('/store/create', requireLogin, upload, async (req, res) => {
 app.put('/store/update', requireLogin, upload, async (req, res) => {
     console.log('This is the file', req.file);
     console.log('This are the files', req.files);
-  
+
     try {
-      const { storeId } = req.params; // Assuming you have a store ID in the route parameters
-  
-      // Find the farmer store to update
-      const farmerStore = await FarmerStore.findById(storeId);
-  
-      if (!farmerStore) {
-        req.flash('error', 'Store not found!');
-        return res.redirect('/products'); // Handle case where store isn't found
-      }
-  
-      // Update farmer store information (if provided in the request body)
-      if (req.body.storeName) {
-        farmerStore.storeName = req.body.storeName;
-      }
-  
-      // Update mushroom data (if provided)
-      const { type, size, use: intendedUse } = req.body;
-      const imageUpdates = []; // Track updates for mushroom images
-  
-      if (req.files['mushrooms-images']) {
-        const newImages = req.files['mushrooms-images'].map(file => file.filename);
-        farmerStore.mushrooms.forEach(mushroom => {
-          // Update existing images if provided in the request body
-          if (req.body[`mushroom-image-${mushroom._id}`]) {
-            const updatedImage = req.body[`mushroom-image-${mushroom._id}`];
-            mushroom.images.find(img => img === updatedImage) ? null : mushroom.images.push(updatedImage);
-            imageUpdates.push({ _id: mushroom._id, image: updatedImage }); // Track updates for later saving
-          }
+        const { storeId } = req.params; // Assuming you have a store ID in the route parameters
+
+        // Find the farmer store to update
+        const farmerStore = await FarmerStore.findById(storeId);
+
+        if (!farmerStore) {
+            req.flash('error', 'Store not found!');
+            return res.redirect('/products'); // Handle case where store isn't found
+        }
+
+        // Update farmer store information (if provided in the request body)
+        if (req.body.storeName) {
+            farmerStore.storeName = req.body.storeName;
+        }
+
+        // Update mushroom data (if provided)
+        const { type, size, use: intendedUse } = req.body;
+        const imageUpdates = []; // Track updates for mushroom images
+
+        if (req.files['mushrooms-images']) {
+            const newImages = req.files['mushrooms-images'].map(file => file.filename);
+            farmerStore.mushrooms.forEach(mushroom => {
+                // Update existing images if provided in the request body
+                if (req.body[`mushroom-image-${mushroom._id}`]) {
+                    const updatedImage = req.body[`mushroom-image-${mushroom._id}`];
+                    mushroom.images.find(img => img === updatedImage) ? null : mushroom.images.push(updatedImage);
+                    imageUpdates.push({ _id: mushroom._id, image: updatedImage }); // Track updates for later saving
+                }
+            });
+            farmerStore.mushrooms = farmerStore.mushrooms.concat(newImages.map(image => ({ type, images: [image], size, intendedUse })));
+        }
+
+        // Update product data (if provided)
+        const { product_name: name, product_description: description, product_price: price } = req.body;
+        let image = req.files.products ? req.files.products.map(file => file.filename) : []; // Check for new product image
+
+        if (req.body.productId) { // Update existing product
+            const existingProduct = farmerStore.products.find(prod => prod._id.toString() === req.body.productId);
+            if (existingProduct) {
+                existingProduct.name = name;
+                existingProduct.description = description;
+                existingProduct.price = price;
+                if (image.length) {
+                    existingProduct.image = image[0]; // Update product image if provided
+                }
+            }
+        } else { // Create new product
+            const newProduct = new Product({ name, description, price, image });
+            farmerStore.products.push(newProduct);
+        }
+
+        // Save the updated farmer store with associated mushrooms and products
+        await farmerStore.save();
+
+        // Save any individual mushroom image updates outside the loop
+        imageUpdates.forEach(async update => {
+            const mushroomToUpdate = farmerStore.mushrooms.find(m => m._id.toString() === update._id);
+            if (mushroomToUpdate) {
+                mushroomToUpdate.images = update.image ? mushroomToUpdate.images.concat(update.image) : mushroomToUpdate.images;
+                await mushroomToUpdate.save();
+            }
         });
-        farmerStore.mushrooms = farmerStore.mushrooms.concat(newImages.map(image => ({ type, images: [image], size, intendedUse })));
-      }
-  
-      // Update product data (if provided)
-      const { product_name: name, product_description: description, product_price: price } = req.body;
-      let image = req.files.products ? req.files.products.map(file => file.filename) : []; // Check for new product image
-  
-      if (req.body.productId) { // Update existing product
-        const existingProduct = farmerStore.products.find(prod => prod._id.toString() === req.body.productId);
-        if (existingProduct) {
-          existingProduct.name = name;
-          existingProduct.description = description;
-          existingProduct.price = price;
-          if (image.length) {
-            existingProduct.image = image[0]; // Update product image if provided
-          }
-        }
-      } else { // Create new product
-        const newProduct = new Product({ name, description, price, image });
-        farmerStore.products.push(newProduct);
-      }
-  
-      // Save the updated farmer store with associated mushrooms and products
-      await farmerStore.save();
-  
-      // Save any individual mushroom image updates outside the loop
-      imageUpdates.forEach(async update => {
-        const mushroomToUpdate = farmerStore.mushrooms.find(m => m._id.toString() === update._id);
-        if (mushroomToUpdate) {
-          mushroomToUpdate.images = update.image ? mushroomToUpdate.images.concat(update.image) : mushroomToUpdate.images;
-          await mushroomToUpdate.save();
-        }
-      });
-  
-      req.flash('success', 'Successfully Updated Store');
-      res.redirect('/products');
-  
+
+        req.flash('success', 'Successfully Updated Store');
+        res.redirect('/products');
+
     } catch (error) {
-      console.error(error);
-      req.flash('error', 'Failed to update store!');
-      res.redirect('/products');
+        console.error(error);
+        req.flash('error', 'Failed to update store!');
+        res.redirect('/products');
     }
-  });
-  
+});
+
